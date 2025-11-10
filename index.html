@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>シンプルタイマー</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/jpeg" href="images/timer.jpg">
+</head>
+<body>
+  <main class="timer" data-mode="countdown">
+    <img class="timer-icon" src="images/timer.jpg" alt="タイマーアイコン">
+    <h1>シンプルタイマー</h1>
+    <div class="mode-toggle" role="tablist" aria-label="タイマーモード">
+      <button type="button" class="mode-button" data-mode-button="stopwatch">ストップウォッチ</button>
+      <button type="button" class="mode-button active" data-mode-button="countdown">カウントダウン</button>
+    </div>
+
+    <form class="countdown-form" id="countdown-form" novalidate>
+      <label class="field">
+        <span>分</span>
+        <input type="number" id="countdown-minutes" min="0" value="0" inputmode="numeric">
+      </label>
+      <label class="field">
+        <span>秒</span>
+        <input type="number" id="countdown-seconds" min="0" max="59" value="0" inputmode="numeric">
+      </label>
+      <button type="submit" id="set-countdown">セット</button>
+    </form>
+    <div class="preset-buttons">
+      <button type="button" id="preset-five">5分セット</button>
+    </div>
+    <p class="status-text" id="countdown-status" aria-live="polite">未設定</p>
+
+    <div class="display" id="display">00:00.00</div>
+    <div class="controls">
+      <button id="start-stop">Start</button>
+      <button id="reset" disabled>Reset</button>
+      <button id="lap" disabled>Lap</button>
+    </div>
+    <ul id="laps" class="laps"></ul>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
